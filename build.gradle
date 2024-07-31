@@ -1,0 +1,36 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'com.github.calculusmaster'
+version = '1.0-SNAPSHOT'
+mainClassName = "calculusmaster.bingobot.ui.BingoFX"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+    implementation 'net.dv8tion:JDA:5.0.0-beta.23'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.12'
+    implementation 'org.mongodb:mongodb-driver-sync:5.1.0'
+
+    implementation 'com.github.calculusmaster:basebot:0.1.0'
+}
+
+test {
+}
+
+application {
+    mainClassName = "calculusmaster.bingobot.BingoBot"
+}
+
+javafx {
+    version = "22.0.1"
+    modules = [ 'javafx.controls', 'javafx.graphics' ]
+}
